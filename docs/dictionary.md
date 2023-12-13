@@ -101,8 +101,8 @@ The rules are organized in groups, each starting with a `.group` line:
 **notes about rule groups**
 
 When matching a word, firstly the 2-letter group for the two letters at
-the current position in the word (if such a group exists) is searched,
-and then the single-letter group. The highest scoring rule in either of
+the current position in the word is searched (if such a group exists),
+and then the single-letter group. The highest-scoring rule in either of
 those two groups is used.
 
 * `.group`
@@ -113,8 +113,8 @@ those two groups is used.
 
 ### Letter groups
 
-Specific group of rules is declaration of letter sequences with some common
-feature of letters for particular language. It may be used as a placeholder
+A specific group of rules is a declaration of letter sequences with some common
+feature of letters for a particular language. It may be used as a placeholder
 of prefixes/infixes of words (in prerules) or infixed/postfixes in (postrules).
 
 * `.L<nn>`
@@ -129,9 +129,9 @@ There can be up to 200 items in one letter group.
 
 When matching a word, firstly the group containing most letters is checked at
 the current position in the word (if such a group exists), then shorter ones
-till to the single-letter groups. The highest scoring rule of matching group is used.
+until the single-letter groups. The highest-scoring rule of a matching group is used.
 
-`~` Letter in letter group means, that there can be no letter in this group
+The `~` symbol in a letter group means that there can be no letter in this group
     in the pre- or post- rule.
 
 _Example with prerule group:_
@@ -141,7 +141,7 @@ _Example with prerule group:_
 .group a
   L01) a      i  // A
 ```
-following rules will match for words:
+The following rules will match for words:
 
 |Word |Phonetic spelling|
 |-----|-----------------|
@@ -164,17 +164,17 @@ _Example with postrule group:_
 
 ### Rules
 
-Each rule is on separate line, and has the syntax:
+Each rule is on a separate line and has the following syntax:
 
 	[<pre>)] <match> [(<post>] <phoneme string>
 
-* characters in `<pre>)` group are already spelled and "consumed"
-* characters in `<match>` group are ones which will be spelled and "consumed"
-by best matching rule
-* characters in `(<post>` group will not be spelled and produced, but can be
-used as reference to choose matching rule
+* characters in the `<pre>)` group are already spelled and "consumed"
+* characters in the `<match>` group are ones which will be spelled and "consumed"
+by the best-matching rule
+* characters in the `(<post>` group will not be spelled and produced, but can be
+used as reference to choose a matching rule
 
-Note that `<match>` group can be longer than name of character group, but cannot
+Note that the `<match>` group can be longer than the name of a character group, but cannot
 be shorter.
 
 Example:
